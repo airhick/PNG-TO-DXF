@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to DXF Converter</title>
+    <style>
+        body {
+            background-color: #111827; /* Dark gray background */
+            color: #e5e7eb; /* Light text */
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(17, 24, 39, 0.8); /* Dark semi-transparent */
+            border-bottom: 1px solid #1f2937;
+            padding: 1rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #f3f4f6;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex-grow: 1;
+        }
+
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #4b5563; /* Gray border */
+            background-color: #1f2937; /* Slightly lighter background */
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #dropZone.dragover {
+            background-color: #374151;
+            border-color: #60a5fa; /* Blue accent */
+        }
+
+        #status {
+            text-align: center;
+            margin-top: 1rem;
+            color: #9ca3af;
+        }
+
+        .success {
+            color: #34d399; /* Green text for success */
+        }
+
+        .error {
+            color: #ef4444; /* Red text for errors */
+        }
+
+        footer {
+            background-color: rgba(17, 24, 39, 0.8);
+            border-top: 1px solid #1f2937;
+            padding: 1rem;
+            text-align: center;
+            color: #9ca3af;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Converting status styles */
+        .converting {
+            display: inline-block;
+            animation: pulse 2s infinite;
+            color: #60a5fa;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>DXF Image Converter</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <p style="font-size: 1.125rem; margin-bottom: 0.5rem;">Drag & drop your JPG image here</p>
+            <p style="font-size: 0.875rem; color: #9ca3af;">or click to select a file</p>
+        </div>
+        <div id="status"></div>
+    </div>
+
+    <footer>
+        <p>Convert your images to DXF format for CAD software and OnShape</p>
+    </footer>
+
+    <script src="static/script.js"></script>
+</body>
+</html> 
